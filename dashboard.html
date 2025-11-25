@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Eco Route</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="navbar">
+            <h1>🌱 Eco Route</h1>
+            <div class="nav-user">
+                <span id="userName">Welcome, User</span>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+
+        <div class="dashboard-content">
+            <div class="route-planner">
+                <h2>Plan Your Eco-Friendly Route</h2>
+                <form class="route-form" id="routeForm">
+                    <div class="input-group">
+                        <label for="fromLocation">From</label>
+                        <input type="text" id="fromLocation" placeholder="Enter starting location" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="toLocation">To</label>
+                        <input type="text" id="toLocation" placeholder="Enter destination" required>
+                    </div>
+                    <button type="submit" class="find-route-btn">Find Route</button>
+                </form>
+            </div>
+
+            <div class="map-container">
+                <div class="map-controls">
+                    <button class="map-btn active" onclick="toggleMapView(this, 'standard')">Standard Map</button>
+                    <button class="map-btn" onclick="toggleMapView(this, 'greenery')">Greenery View</button>
+                </div>
+                <div id="map"></div>
+                <div class="legend">
+                    <h3>Route Legend</h3>
+                    <div class="legend-item">
+                        <div class="legend-color red"></div>
+                        <span>Shortest Route (High Pollution)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color green"></div>
+                        <span>Eco-Friendly Route (Low Pollution)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3>Average AQI</h3>
+                    <div class="stat-value" id="avgAQI">--</div>
+                    <div class="stat-label">Air Quality Index</div>
+                </div>
+                <div class="stat-card">
+                    <h3>CO2 Emissions</h3>
+                    <div class="stat-value" id="co2Level">--</div>
+                    <div class="stat-label">g/km</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Eco Score</h3>
+                    <div class="stat-value" id="ecoScore">--</div>
+                    <div class="stat-label">Out of 100</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Route Distance</h3>
+                    <div class="stat-value" id="distance">--</div>
+                    <div class="stat-label">kilometers</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
